@@ -6,6 +6,7 @@ const ngrok = require('ngrok');
 // Routes
 const user = require('./routes/user');
 const auth = require('./routes/auth');
+const cam = require('./routes/cam');
 
 // Connecting to DB
 mongoose.connect(config.get('app.db'))
@@ -19,6 +20,7 @@ const app = express();
 app.use(express.json());
 app.use('/api/user', user);
 app.use('/api/auth', auth);
+app.use('/api/cam', cam);
 
 app.listen(config.get('app.port'), () => {
   console.log('Express is runing on port', config.get('app.port'));
